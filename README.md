@@ -46,7 +46,7 @@ I built this over the summer as a hands-on engineering project. My focus was the
 
 | Top view | Close-up of solder joints | Side view |
 |----------|---------------------------|-----------|
-| ![top](images/build/top.jpg) | ![closeup](images/build/closeup.jpg) | ![side](images/build/side.jpg) |
+| ![top](https://github.com/Rayankh4n/voice-activated-room-light/blob/de19ee7ef2624b2a153b772e0e2a6b6f859b3d51/IMG_7012.jpeg) | ![closeup](images/build/closeup.jpg) | ![side](images/build/side.jpg) |
 
 ---
 
