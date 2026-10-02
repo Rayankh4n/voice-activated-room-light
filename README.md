@@ -11,22 +11,22 @@
 
 ---
 
-## 📌 Overview
+## Overview
 
 I wanted a voice assistant that does one job well and that I fully built and understood, instead of a commercial smart speaker. Jarvis listens for a custom wake word and switches a desk light through a relay.
 
 I built this over the summer as a hands-on engineering project. My focus was the **hardware side**: planning the board, soldering, wiring, and designing a custom enclosure in CAD. The software builds on open-source wake-word and voice-assistant projects (see [Credits](#-credits--what-i-built-vs-what-i-adapted)).
 
-## ✨ Highlights
+## Highlights
 
-- **Wake-word activation:** responds to "Hey Jarvis"
+- **Voice activation:** responds to "Hey Jarvis"
 - **Hand-soldered hardware:** microcontroller, mic breakout, and relay wired on a prototyping board
 - **Switches a real circuit:** a relay toggles the desk light
 - **Custom enclosure:** designed in CAD to hide the board and position the mic
 
 ---
 
-## 🔩 Parts
+## Parts
 
 <!-- TODO: fill in the exact model/name for each part (check the labels on the chips and boards). Add one photo per part from your angles. -->
 
@@ -40,9 +40,7 @@ I built this over the summer as a hands-on engineering project. My focus was the
 | 6 | **Power supply** | Powers the microcontroller | `[spec]` | ![power](images/parts/power.jpg) |
 | 7 | **3D-printed enclosure** | Houses the board and positions the mic | Custom CAD | ![enclosure](images/cad/enclosure.png) |
 
-> Add or remove rows to match what's actually on your board.
-
-### 📸 Build Photos
+###  Build Photos
 
 <!-- Drop your different angles here. Keep the captions specific. -->
 
