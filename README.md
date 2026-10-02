@@ -1,4 +1,4 @@
-# Hey Jarvis: Voice-Activated Room Light
+#Jarvis: Voice-Activated Room Light
 
 > A hardware voice-activation project: say **"Hey Jarvis"**, then a command, and a relay switches the lights in my room
 
@@ -50,7 +50,7 @@ I built this over the summer as a hands-on engineering project. My focus was the
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 ```mermaid
 flowchart LR
@@ -69,7 +69,7 @@ flowchart LR
 
 ---
 
-## 📐 Mechanical Design (CAD)
+## Mechanical Design (CAD)
 
 I designed the enclosure so the project looks like a finished desk accessory instead of a loose board. Goals: protect the electronics, keep the mic exposed and well-positioned, and leave access for the power cable and relay wiring.
 
@@ -82,7 +82,7 @@ I designed the enclosure so the project looks like a finished desk accessory ins
 
 ---
 
-## 💻 Software
+## Software
 
 The code handles listening for the wake word and triggering the relay. Core logic:
 
@@ -97,7 +97,7 @@ Full source: [`/src`](src/)
 
 ---
 
-## 🧗 Challenges & What I Learned
+## Challenges & What I Learned
 
 <!-- TODO: write 3-4 real ones. These are what make a project page stand out. Ideas: -->
 
@@ -105,7 +105,7 @@ Full source: [`/src`](src/)
 - **Mic placement and noise:** `[how placement affected detection]`
 - **Fitting the enclosure:** `[a measurement or tolerance you had to correct]`
 
-## 🔭 Next Steps
+## Next Steps
 
 - [ ] Finish printing and assemble the enclosure
 - [ ] Add support for more commands (on/off, dimming)
@@ -113,7 +113,7 @@ Full source: [`/src`](src/)
 
 ---
 
-## 🙌 Credits & What I Built vs. What I Adapted
+## Credits & What I Built vs. What I Adapted
 
 **What I did:** planned the board layout, soldered and wired all hardware, designed the CAD enclosure, and tested and integrated the system.
 
@@ -124,7 +124,7 @@ Full source: [`/src`](src/)
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 git clone https://github.com/Rayankh4n/voice-activated-room-light.git
