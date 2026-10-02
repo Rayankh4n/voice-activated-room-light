@@ -1,6 +1,6 @@
-# 🎙️ Hey Jarvis: Voice-Activated Room Light
+# Hey Jarvis: Voice-Activated Room Light
 
-> A hardware voice-activation project: say **"Hey Jarvis"**, then a command, and a relay switches the lights at my desk.
+> A hardware voice-activation project: say **"Hey Jarvis"**, then a command, and a relay switches the lights in my room
 
 ![Status](https://img.shields.io/badge/status-working%20prototype-brightgreen)
 ![Hardware](https://img.shields.io/badge/focus-hardware%20%26%20CAD-blue)
