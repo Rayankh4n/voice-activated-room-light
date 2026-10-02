@@ -3,13 +3,12 @@
 > A hardware-based voice activation pipeline to control room lighting via custom wake-word detection.
 
 ![Project Demo Placeholder](images/demo.gif)
-*(Replace this with a short GIF of you saying "Hey Jarvis" and the lights reacting!)*
 
 ---
 
-## 🌟 Highlights
+Highlights
 
-* **Wake-Word Detection:** Listens continuously for the "Hey Jarvis" command.
+* **Wake-Word Detection:** Activated by the "Hey Jarvis" command.
 * **Custom Hardware Stack:** Built using a microchip and modular microphone routing.
 * **Ambient Integration:** Designed to integrate into a modern desktop environment to control local illumination.
 * **3D-Printed Enclosure:** Form-fitted, custom CAD-designed housing to cleanly conceal the prototyping board and mic.
