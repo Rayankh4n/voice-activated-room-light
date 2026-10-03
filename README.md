@@ -101,9 +101,9 @@ I designed the enclosure so the project looks like a finished accessory instead 
 <!-- TODO: add 2-3 CAD screenshots (isometric, exploded view), then uncomment the line below. -->
 <!-- ![CAD model](cad/enclosure.png) -->
 
-- **Software used:** `[CAD program]`
+- **Software used:** `Fusion`
 - **Print status:** designed, not yet printed
-- **Design decisions:** `[e.g. mic opening placement, speaker grille, how the board is mounted]`
+- **Design decisions:** (https://github.com/Rayankh4n/voice-activated-room-light/blob/e5c90768abf208de479688f80b0931686fb3e16c/Voice_Activated_Light.stl)
 
 ---
 
@@ -140,7 +140,6 @@ Full source: [`/src`](src/)
 
 - [ ] Print and assemble the enclosure
 - [ ] Add support for more commands (dimming, multiple lights)
-- [ ] `[your own idea]`
 
 ---
 
