@@ -69,7 +69,7 @@ The project is split into two units: the **voice controller** that listens, and 
 
 | Top view | Close-up of solder joints | Bottom view |
 |----------|---------------------------|-------------|
-| ![Top]([https://github.com/Rayankh4n/voice-activated-room-light/blob/d517f307bfb1e893f7b2ec833fc998a9cb3ae873/images/build-top.jpeg](https://github.com/Rayankh4n/voice-activated-room-light/blob/5ecb3f1b20a5e42ab2e598da765e8f926733f24b/images%3Abuild-top.jpeg)) | ![Closeup](https://github.com/Rayankh4n/voice-activated-room-light/blob/5ecb3f1b20a5e42ab2e598da765e8f926733f24b/images%3Abuild-closeup.jpeg) | ![Bottom](https://github.com/Rayankh4n/voice-activated-room-light/blob/5ecb3f1b20a5e42ab2e598da765e8f926733f24b/images%3Abuild-bottom.jpeg) |
+| ![Top](https://github.com/Rayankh4n/voice-activated-room-light/blob/c163f2fdd2fd6f205d6663f8ea41302de4beae7d/images%3Abuild-top.jpeg) | ![Closeup](https://github.com/Rayankh4n/voice-activated-room-light/blob/5ecb3f1b20a5e42ab2e598da765e8f926733f24b/images%3Abuild-closeup.jpeg) | ![Bottom](https://github.com/Rayankh4n/voice-activated-room-light/blob/5ecb3f1b20a5e42ab2e598da765e8f926733f24b/images%3Abuild-bottom.jpeg) |
 
 ---
 
