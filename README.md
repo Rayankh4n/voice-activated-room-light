@@ -104,7 +104,7 @@ I designed the enclosure so the project looks like a finished accessory instead 
 - **Software used:** `Fusion`
 - **Print status:** designed, not yet printed
 - **CAD:**
-![**CAD:**](https://github.com/Rayankh4n/voice-activated-room-light/blob/359a7fd46c74ba9bc4c3192fdd7d8d4f708e4c45/Jarvis-board-connection.jpg)
+![**CAD:**](https://github.com/Rayankh4n/voice-activated-room-light/blob/fca235f86e184780193bba1558de48c26d48fe60/Screenshot%202026-10-02%20174225.png)
 
 ---
 
