@@ -103,7 +103,7 @@ I designed the enclosure so the project looks like a finished accessory instead 
 
 - **Software used:** `Fusion`
 - **Print status:** designed, not yet printed
-- **Design decisions:** (https://github.com/Rayankh4n/voice-activated-room-light/blob/e5c90768abf208de479688f80b0931686fb3e16c/Voice_Activated_Light.stl)
+- **Design decisions:** (https://github.com/Rayankh4n/voice-activated-room-light/blob/2debb0603925373cb1e1191e08c40a984e22ac6f/Screenshot%202026-10-02%20174225.png)
 
 ---
 
