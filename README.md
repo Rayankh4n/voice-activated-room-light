@@ -63,7 +63,7 @@ The project is split into two units: the **voice controller** that listens, and 
 
 ### Wiring diagram
 
-![Wiring diagram](Jarvis-board-connection.jpg)
+![Wiring diagram](https://github.com/Rayankh4n/voice-activated-room-light/blob/359a7fd46c74ba9bc4c3192fdd7d8d4f708e4c45/Jarvis-board-connection.jpg)
 
 ### Build photos
 
