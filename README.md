@@ -119,14 +119,6 @@ I designed the enclosure so the project looks like a finished accessory instead 
 - VS Code
 
 The speech pipeline uses ESP-SR features like acoustic echo cancellation, blind source separation, and voice activity detection to get low-latency wake word and command detection. When a command is validated, a FreeRTOS task sends the request to the relay. Tasmota accepts simple HTTP commands, for example:
-
-```
-http://<relay-ip>/cm?cmnd=Power%20On
-http://<relay-ip>/cm?cmnd=Power%20Off
-```
-
-Full source: [`/src`](src/)
-
 ---
 
 ## Challenges & What I Learned
@@ -148,10 +140,7 @@ Full source: [`/src`](src/)
 
 **What I did:** planned the board, soldered and wired all of the hardware, designed the CAD enclosure, and tested and integrated the system.
 
-**What I adapted:** the software started from the open-source [diy-alexa](https://github.com/atomic14/diy-alexa) project by atomic14. I modified it for my hardware, my wake word, and the Tasmota relay, with AI assistance.
-
-- Co-developed with: `[name(s), if applicable]`
-
+**What I adapted:** the software started from the open-source [diy-alexa](https://github.com/atomic14/diy-alexa) project by atomic14. I modified it for my hardware, Online walk algorithm, and the Tasmota relay, with AI assistance.
 ---
 
 ## Getting Started
