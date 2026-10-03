@@ -13,7 +13,9 @@
 
 ## Overview
 
-I wanted a voice assistant that does one job well and that I fully built and understood, instead of a commercial smart speaker. Jarvis listens for a custom wake word and switches a light in my room, and all of the speech recognition runs on the device with no cloud.
+Jarvis is a voice-controlled light switch built around offline speech recognition. It listens for the wake word **"Hey Jarvis"**. Once it wakes up, I tell it what to do, like **"Turn the light on"** or **"Turn the light off"**, and it switches the light in my room.
+
+The speech recognition runs on an ESP32-S3 using Espressif's ESP-SR framework, so the voice processing happens on the device with no cloud. When Jarvis recognizes a command, it sends a message over Wi-Fi to a separate relay module running Tasmota, which physically switches the light.
 
 I built this over the summer as a hands-on engineering project. My focus was the **hardware side**: planning the board, soldering, wiring, and designing a custom enclosure in CAD. The software builds on the open-source [diy-alexa](https://github.com/atomic14/diy-alexa) project, which I modified for my own hardware and wake word with AI assistance (see [Credits](#credits--what-i-built-vs-what-i-adapted)).
 
