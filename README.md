@@ -1,52 +1,75 @@
-#Jarvis: Voice-Activated Room Light
+# Jarvis: Voice-Activated Room Light
 
-> A hardware voice-activation project: say **"Hey Jarvis"**, then a command, and a relay switches the lights in my room
+> A hardware voice-activation project: say **"Hey Jarvis"**, then a command, and a Wi-Fi relay switches the lights in my room
 
 ![Status](https://img.shields.io/badge/status-working%20prototype-brightgreen)
 ![Hardware](https://img.shields.io/badge/focus-hardware%20%26%20CAD-blue)
-![Enclosure](https://img.shields.io/badge/enclosure-in%20print-orange)
+![Enclosure](https://img.shields.io/badge/enclosure-designed%2C%20not%20yet%20printed-orange)
 
-<!-- TODO: replace with a short GIF/video of you saying "Hey Jarvis" and the light turning off. This is the single most impactful thing on the page. -->
-![Demo](images/demo.gif)
+<!-- TODO: add a short GIF/video of me saying "Hey Jarvis" and the light turning on/off, then uncomment the line below. This is the single most impactful thing on the page. -->
+<!-- ![Demo](demo.gif) -->
 
 ---
 
 ## Overview
 
-I wanted a voice assistant that does one job well and that I fully built and understood, instead of a commercial smart speaker. Jarvis listens for a custom wake word and switches a desk light through a relay.
+I wanted a voice assistant that does one job well and that I fully built and understood, instead of a commercial smart speaker. Jarvis listens for a custom wake word and switches a light in my room, and all of the speech recognition runs on the device with no cloud.
 
-I built this over the summer as a hands-on engineering project. My focus was the **hardware side**: planning the board, soldering, wiring, and designing a custom enclosure in CAD. The software builds on open-source wake-word and voice-assistant projects (see [Credits](#-credits--what-i-built-vs-what-i-adapted)).
+I built this over the summer as a hands-on engineering project. My focus was the **hardware side**: planning the board, soldering, wiring, and designing a custom enclosure in CAD. The software builds on the open-source [diy-alexa](https://github.com/atomic14/diy-alexa) project, which I modified for my own hardware and wake word with AI assistance (see [Credits](#credits--what-i-built-vs-what-i-adapted)).
 
 ## Highlights
 
-- **Voice activation:** responds to "Hey Jarvis"
-- **Hand-soldered hardware:** microcontroller, mic breakout, and relay wired on a prototyping board
-- **Switches a real circuit:** a relay toggles the desk light
+- **Voice activation:** responds to "Hey Jarvis" and commands like "Turn on the light"
+- **Fully offline recognition:** wake word and commands are processed on the ESP32-S3 with ESP-SR, no cloud needed
+- **Two-device design:** a voice controller sends commands over Wi-Fi to a separate relay module, so the high-voltage side is isolated from the voice electronics
+- **Hand-soldered hardware:** ESP32-S3, microphone, and amplifier wired together on PCB boards
 - **Custom enclosure:** designed in CAD to hide the board and position the mic
 
 ---
 
 ## Parts
 
-<!-- TODO: fill in the exact model/name for each part (check the labels on the chips and boards). Add one photo per part from your angles. -->
+The project is split into two units: the **voice controller** that listens, and the **smart relay** that switches the light.
 
-| # | Part | What it does | Model | Photo |
-|---|------|--------------|-------|-------|
-| 1 | **Microcontroller** | Runs the code and decides when to trigger the light | `[model]` | ![mcu](images/parts/mcu.jpg) |
-| 2 | **Microphone breakout board** | Picks up audio for wake-word detection | `[model]` | ![mic](images/parts/mic.jpg) |
-| 3 | **Relay module** | Safely switches the light circuit on and off | `[model]` | ![relay](images/parts/relay.jpg) |
-| 4 | **Prototyping board** | Everything is soldered onto this | `[size/type]` | ![board](images/parts/board.jpg) |
-| 5 | **Wiring and solder** | Hand-soldered connections between all components | , | ![solder](images/parts/solder.jpg) |
-| 6 | **Power supply** | Powers the microcontroller | `[spec]` | ![power](images/parts/power.jpg) |
-| 7 | **3D-printed enclosure** | Houses the board and positions the mic | Custom CAD | ![enclosure](images/cad/enclosure.png) |
+### Voice controller
 
-###  Build Photos
+| Part | What it does |
+|------|--------------|
+| **ESP32-S3 WROOM (16N8)** | Main brain. Its dual-core processor runs the speech recognition model on the device |
+| **INMP441 I2S digital microphone** | Captures audio digitally, which keeps noise low |
+| **MAX98357A I2S audio amplifier** | Drives the speaker so Jarvis can respond |
+| **8 ohm speaker** | Audio output |
+| **PCB boards** | Everything is hand-soldered onto these |
+| **5V power adapter** | Powers the voice controller |
 
-<!-- Drop your different angles here. Keep the captions specific. -->
+### Smart relay
 
-| Top view | Close-up of solder joints | Side view |
-|----------|---------------------------|-----------|
-| ![Closeup](https://github.com/Rayankh4n/voice-activated-room-light/blob/de19ee7ef2624b2a153b772e0e2a6b6f859b3d51/IMG_7012.jpeg) | ![Top](https://github.com/Rayankh4n/voice-activated-room-light/blob/26e04977fa0927ed8bd92a3e15b7b3e061da3d6b/IMG_7008.jpeg) | ![Bottom](https://github.com/Rayankh4n/voice-activated-room-light/blob/26e04977fa0927ed8bd92a3e15b7b3e061da3d6b/IMG_7006.jpeg) |
+| Part | What it does |
+|------|--------------|
+| **ESP-01S relay module (ESP8266)** | Wi-Fi relay that physically switches the light |
+| **Tasmota firmware** | Open-source firmware flashed onto the relay so it accepts HTTP/MQTT commands |
+| **5V power adapter** | Powers the relay module |
+
+### GPIO mapping
+
+| Connection | Pin | ESP32-S3 GPIO |
+|------------|-----|---------------|
+| **INMP441 mic** | SD | 9 |
+| | WS | 10 |
+| | SCK | 13 |
+| **MAX98357A amp** | SD | 21 |
+| | LRC | 47 |
+| | BCLK | 14 |
+
+### Wiring diagram
+
+![Wiring diagram](Jarvis-board-connection.jpg)
+
+### Build photos
+
+| Top view | Close-up of solder joints | Bottom view |
+|----------|---------------------------|-------------|
+| ![Top](IMG_7008.jpeg) | ![Closeup](IMG_7012.jpeg) | ![Bottom](IMG_7006.jpeg) |
 
 ---
 
@@ -54,43 +77,51 @@ I built this over the summer as a hands-on engineering project. My focus was the
 
 ```mermaid
 flowchart LR
-    A[🎤 Microphone] --> B[Microcontroller]
+    A[Microphone] --> B[ESP32-S3 voice controller]
     B --> C{Wake word detected?}
     C -- No --> A
     C -- Yes --> D{Command recognized?}
     D -- No --> A
-    D -- Yes --> E[Relay]
-    E --> F[💡 Light on/off]
+    D -- Yes --> E[Send command over Wi-Fi]
+    E --> F[ESP-01S relay running Tasmota]
+    F --> G[Light on/off]
 ```
 
-1. **Listen:** the mic continuously samples audio.
-2. **Match:** the software checks for the wake word "Hey Jarvis".
-3. **Act:** a recognized command sends a signal to the relay, which switches the light.
+1. **Listen:** the mic continuously streams audio into the ESP32-S3 over I2S.
+2. **Match:** ESP-SR checks for the wake word "Hey Jarvis", then listens for a command. This all happens offline.
+3. **Send:** once a command is recognized, the ESP32-S3 sends an HTTP (or MQTT) message over my local Wi-Fi.
+4. **Act:** the Tasmota relay receives it and switches the light.
 
 ---
 
 ## Mechanical Design (CAD)
 
-I designed the enclosure so the project looks like a finished desk accessory instead of a loose board. Goals: protect the electronics, keep the mic exposed and well-positioned, and leave access for the power cable and relay wiring.
+I designed the enclosure so the project looks like a finished accessory instead of a loose board. Goals: protect the electronics, keep the mic exposed and well-positioned, and leave room for the speaker and power cable.
 
-<!-- TODO: add 2-3 CAD screenshots (isometric, exploded view, cross-section) -->
-![CAD model](images/cad/enclosure.png)
+<!-- TODO: add 2-3 CAD screenshots (isometric, exploded view), then uncomment the line below. -->
+<!-- ![CAD model](cad/enclosure.png) -->
 
 - **Software used:** `[CAD program]`
-- **Print status:** designed and ready; printing in progress
-- **Design decisions:** `[e.g. mic opening placement, ventilation, how the board is mounted]`
+- **Print status:** designed, not yet printed
+- **Design decisions:** `[e.g. mic opening placement, speaker grille, how the board is mounted]`
 
 ---
 
 ## Software
 
-The code handles listening for the wake word and triggering the relay. Core logic:
+**Tools and frameworks:**
 
-```cpp
-// Simplified trigger logic
-if (wakeWordDetected && command == "turn the light off") {
-    triggerLightRelay(LOW);
-}
+- ESP-IDF 5.5.1
+- ESP-ADF 2.8.0
+- ESP-SR (Espressif's speech recognition framework)
+- Tasmota HTTP / MQTT protocol
+- VS Code
+
+The speech pipeline uses ESP-SR features like acoustic echo cancellation, blind source separation, and voice activity detection to get low-latency wake word and command detection. When a command is validated, a FreeRTOS task sends the request to the relay. Tasmota accepts simple HTTP commands, for example:
+
+```
+http://<relay-ip>/cm?cmnd=Power%20On
+http://<relay-ip>/cm?cmnd=Power%20Off
 ```
 
 Full source: [`/src`](src/)
@@ -99,27 +130,26 @@ Full source: [`/src`](src/)
 
 ## Challenges & What I Learned
 
-<!-- TODO: write 3-4 real ones. These are what make a project page stand out. Ideas: -->
+<!-- TODO: write 3-4 real ones. These are what make a project page stand out. -->
 
 - **Soldering and debugging:** `[a joint or wiring problem you had to track down and fix]`
 - **Mic placement and noise:** `[how placement affected detection]`
-- **Fitting the enclosure:** `[a measurement or tolerance you had to correct]`
+- **Getting the two devices to talk:** `[Wi-Fi / Tasmota setup problem you ran into]`
 
 ## Next Steps
 
-- [ ] Finish printing and assemble the enclosure
-- [ ] Add support for more commands (on/off, dimming)
+- [ ] Print and assemble the enclosure
+- [ ] Add support for more commands (dimming, multiple lights)
 - [ ] `[your own idea]`
 
 ---
 
 ## Credits & What I Built vs. What I Adapted
 
-**What I did:** planned the board layout, soldered and wired all hardware, designed the CAD enclosure, and tested and integrated the system.
+**What I did:** planned the board, soldered and wired all of the hardware, designed the CAD enclosure, and tested and integrated the system.
 
-**What I adapted:** the software started from open-source voice-assistant projects on GitHub, and I modified it for this hardware with AI assistance.
+**What I adapted:** the software started from the open-source [diy-alexa](https://github.com/atomic14/diy-alexa) project by atomic14. I modified it for my hardware, my wake word, and the Tasmota relay, with AI assistance.
 
-- Based on: `[link to the original repo(s)]`
 - Co-developed with: `[name(s), if applicable]`
 
 ---
@@ -131,11 +161,12 @@ git clone https://github.com/Rayankh4n/voice-activated-room-light.git
 cd voice-activated-room-light
 ```
 
-1. Wire the components as shown in the build photos above.
-2. Flash the code in `/src` to the microcontroller.
-3. Say **"Hey Jarvis"**, then your command.
+1. Wire the ESP32-S3, mic, and amplifier using the GPIO table and wiring diagram above.
+2. Flash Tasmota onto the ESP-01S relay module and connect it to your Wi-Fi.
+3. Build and flash the code in `/src` to the ESP32-S3 using ESP-IDF 5.5.1.
+4. Say **"Hey Jarvis"**, then "Turn on the light".
 
-<!-- TODO: add exact wiring (which pin goes where) and the IDE/libraries needed -->
+**Safety note:** the relay switches mains voltage. Only wire it to a light if you know how to do that safely.
 
 ---
 
